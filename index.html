@@ -73,9 +73,26 @@
                     <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Biruk & Beza</h1>
+                            <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">ብሩክ እና ቤዛ</h1>
                             <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                                <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting married</h3>
+                                <div id="countdown" style="display: flex; gap: 10px;">
+                                    <div class="countdown-section">
+                                        <span id="days" style="font-size: 34px; font-weight: bold; color: orange;">0</span>
+                                        <label>ቀን</label>
+                                    </div>
+                                    <div class="countdown-section">
+                                        <span id="hours" style="font-size: 34px; color: orange;">0</span>
+                                        <label>ሰዓት</label>
+                                    </div>
+                                    <div class="countdown-section">
+                                        <span id="minutes" style="font-size: 34px; color: orange;">0</span>
+                                        <label>ደቂቃ</label>
+                                    </div>
+                                    <div class="countdown-section">
+                                        <span id="seconds" style="font-size: 34px; color: orange;">0</span>
+                                        <label>ሴኮንድ</label>
+                                    </div>
+                                </div> 
                             </div>
                             <button type="button" class="btn-play mx-auto" data-toggle="modal"
                                 data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
@@ -91,6 +108,7 @@
                             <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Biruk & Beza</h1>
                             <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
                                 <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting married</h3>
+                                <!-- <h1 id="countdown" style="color: orange;"></h1> -->
                             </div>
                             <button type="button" class="btn-play mx-auto" data-toggle="modal"
                                 data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
@@ -105,7 +123,25 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Biruk & Beza</h1>
                             <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                                <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting married</h3>
+                                <div id="countdown" style="display: flex;">
+                                    <div class="countdown-section">
+                                        <span id="days-2" style="font-size: 32px; font-weight: bold;">0</span>
+                                        <label>Days</label>
+                                    </div>
+                                    <div class="countdown-section">
+                                        <span id="hours-2" style="font-size: 32px;">0</span>
+                                        <label>Hours</label>
+                                    </div>
+                                    <div class="countdown-section">
+                                        <span id="minutes-2" style="font-size: 32px;">0</span>
+                                        <label>Minutes</label>
+                                    </div>
+                                    <div class="countdown-section">
+                                        <span id="seconds-2" style="font-size: 32px;">0</span>
+                                        <label>Seconds</label>
+                                    </div>
+                                </div>
+                                
                             </div>
                             <button type="button" class="btn-play mx-auto" data-toggle="modal"
                                 data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
@@ -120,7 +156,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Biruk & Beza</h1>
                             <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                                <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting married</h3>
+                                <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting married</h3>                             
                             </div>
                             <button type="button" class="btn-play mx-auto" data-toggle="modal"
                                 data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
@@ -162,7 +198,75 @@
         </div>
     </div>
     <!-- Video Modal End -->
+    <div id="countdown" style="display: flex; justify-content: center; gap: 20px;">
+        <div class="countdown-section">
+            <span id="days-1" style="font-size: 32px; font-weight: bold;">0</span>
+            <label>Days</label>
+        </div>
+        <div class="countdown-section">
+            <span id="hours-1" style="font-size: 32px;">0</span>
+            <label>Hours</label>
+        </div>
+        <div class="countdown-section">
+            <span id="minutes-1" style="font-size: 32px;">0</span>
+            <label>Minutes</label>
+        </div>
+        <div class="countdown-section">
+            <span id="seconds-1" style="font-size: 32px;">0</span>
+            <label>Seconds</label>
+        </div>
+    </div> 
+    <script>
+        // Set the target date here
+        const targetDate = new Date("February 02, 2025 00:00:00").getTime();
 
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining <= 0) {
+                document.getElementById("days").innerText = 0;
+                document.getElementById("hours").innerText = 0;
+                document.getElementById("minutes").innerText = 0;
+                document.getElementById("seconds").innerText = 0;
+                document.getElementById("days-1").innerText = 0;
+                document.getElementById("hours-1").innerText = 0;
+                document.getElementById("minutes-1").innerText = 0;
+                document.getElementById("seconds-1").innerText = 0;
+                document.getElementById("days-2").innerText = 0;
+                document.getElementById("hours-2").innerText = 0;
+                document.getElementById("minutes-2").innerText = 0;
+                document.getElementById("seconds-2").innerText = 0;
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            // Update the HTML elements
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+            document.getElementById("days-1").innerText = days;
+            document.getElementById("hours-1").innerText = hours;
+            document.getElementById("minutes-1").innerText = minutes;
+            document.getElementById("seconds-1").innerText = seconds;
+            document.getElementById("days-2").innerText = days;
+            document.getElementById("hours-2").innerText = hours;
+            document.getElementById("minutes-2").innerText = minutes;
+            document.getElementById("seconds-2").innerText = seconds;
+        }
+
+        // Update countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Initial call to show immediately
+        updateCountdown();
+    </script>
 
     <!-- About Start -->
     <div class="container-fluid py-5" id="about">
@@ -518,7 +622,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-center text-md-left ml-md-3">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246.29333042842248!2d38.67550744977021!3d9.00034416935526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b87a8fa4f81eb%3A0x7f336298112f27!2sJemo%20terara%20full%20gospel%20church!5e0!3m2!1sen!2set!4v1736889121403!5m2!1sen!2set" width="350" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3940.696001218631!2d38.67537300000001!3d9.000094999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwMDAnMDAuMyJOIDM4wrA0MCczMS4zIkU!5e0!3m2!1sen!2set!4v1737151146401!5m2!1sen!2set" width="350" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246.29333042842248!2d38.67550744977021!3d9.00034416935526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b87a8fa4f81eb%3A0x7f336298112f27!2sJemo%20terara%20full%20gospel%20church!5e0!3m2!1sen!2set!4v1736889121403!5m2!1sen!2set" width="350" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                         <h4 class="mb-3">Biruk and Beza's wedding ceremony</h4>
                         <p class="mb-2">Jemo terara full gospel church</p>
                         <p class="mb-0">Feb 2, 2025 G.C</p>
